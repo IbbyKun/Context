@@ -27,7 +27,7 @@ const PortfolioCard = () => {
           />
         </div>
       </div>
-      <div className="absolute top-[3350px] left-[90%] transform translate-x-[-50%]">
+      <div className="absolute top-[3300px] left-[90%] transform translate-x-[-50%]">
         <svg
           width="596"
           height="591"

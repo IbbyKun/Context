@@ -4,7 +4,7 @@ import image from '../Resources/card2.png';
 const PortfolioCard = () => {
   return (
     <div className="bg-gradient-to-r from-[#9B53FE] to-[#5EDAFE] rounded-lg overflow-hidden shadow-md max-w-6xl mx-auto p-6">
-      <div className="absolute top-[4150px] left-[5%] transform translate-x-[-50%]">
+      <div className="absolute top-[4100px] left-[5%] transform translate-x-[-50%]">
         <svg
           width="348"
           height="349"
@@ -34,7 +34,7 @@ const PortfolioCard = () => {
           />
         </svg>
       </div>
-      <div className="absolute top-[4750px] left-[94%] transform translate-x-[-50%]">
+      <div className="absolute top-[4700px] left-[94%] transform translate-x-[-50%]">
         <svg
           width="348"
           height="349"

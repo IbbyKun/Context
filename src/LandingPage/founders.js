@@ -1,5 +1,7 @@
 import React from 'react';
 import image from '../Resources/linkedin.png';
+import founder1 from '../Resources/founder1.png';
+import founder2 from '../Resources/founder2.png';
 
 const TeamPage = () => {
   return (
@@ -17,7 +19,7 @@ const TeamPage = () => {
           style={{ width: '300px' }}
         >
           <img
-            src="https://via.placeholder.com/150"
+            src={founder1}
             alt="Somya Gupta"
             className="w-full h-auto mb-4 rounded-lg"
           />
@@ -32,7 +34,7 @@ const TeamPage = () => {
           style={{ width: '300px' }}
         >
           <img
-            src="https://via.placeholder.com/150"
+            src={founder2}
             alt="Dror Margalit"
             className="w-full h-auto mb-4 rounded-lg"
           />

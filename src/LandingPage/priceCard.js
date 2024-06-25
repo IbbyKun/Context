@@ -1,6 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const PricingPage = () => {
+  const [showModal, setShowModal] = useState(false);
+  const [email, setEmail] = useState('');
+
+  const onChangeEmail = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handleSubmit = () => {
+    // Call your backend API with the email state
+    console.log('Submitting email:', email);
+    // Reset the email state
+    setEmail('');
+    // Close the modal
+    setShowModal(false);
+  };
+
   return (
     <div className="text-center">
       <div className="absolute top-[4950px] left-[95%] transform translate-x-[-50%]">
@@ -59,10 +75,12 @@ const PricingPage = () => {
             />
           </svg>
         </div>
-        <h5 className="mb-4 mt-4 text-xl font-medium text-white text-left">Popular</h5>
+        <h5 className="mb-4 mt-4 text-xl font-medium text-white text-left">
+          Popular
+        </h5>
         <p className="text-sm text-left text-white mb-4">
-            For just $25 a month, you get access to all of our amazing features
-          </p>
+          For just $25 a month, you get access to all of our amazing features
+        </p>
         <div className="flex items-baseline text-white">
           <span className="text-3xl font-semibold">$</span>
           <span className="text-5xl font-extrabold tracking-tight">49</span>
@@ -178,9 +196,57 @@ const PricingPage = () => {
         <button
           type="button"
           className="text-purple-600 font-medium rounded-full text-sm px-4 py-1.5 inline-flex justify-center w-full text-center bg-white "
+          onClick={() => setShowModal(true)}
         >
           Pay
         </button>
+        {showModal && (
+          <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+            <div className="relative bg-white rounded-lg p-6 w-[450px]">
+              <button
+                className="absolute top-2 right-2 text-red-500"
+                onClick={() => setShowModal(false)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+              <h3 className="text-xl text-[#0B83D9] font-semibold text-center mb-2">
+                Waitlist
+              </h3>
+              <p className="text-center mb-4">
+                Oops, we already have a lot of users onboard and we are
+                onboarding new users soon. Kindly join our waitlist!
+              </p>
+              <div className="flex items-center border border-[#0B83D9] rounded-full overflow-hidden mb-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="p-2 flex-grow outline-none rounded-l-full"
+                  value={email}
+                  onChange={onChangeEmail}
+                />
+                <button
+                  className="px-4 py-2 mr-1 ml-2 my-1 bg-gradient-to-r from-[#9E55FD] to-[#23C1FF] text-white font-base rounded-full"
+                  onClick={handleSubmit}
+                >
+                  Send Email
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
